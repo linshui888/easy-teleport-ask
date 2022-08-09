@@ -1,0 +1,11 @@
+
+daoPackage:
+  - "pers/zhangyang/easytemplate/dao"
+listenerPackage:
+  - "pers/zhangyang/easytemplate/listener"
+executorPackage:
+  - "pers/zhangyang/easytemplate/executor"
+yamlPackage:
+  - "pers/zhangyang/easytemplate/yaml"
+guiButtonHandlerPackage:
+  - "pers/zhangyang/easytemplate/listener"

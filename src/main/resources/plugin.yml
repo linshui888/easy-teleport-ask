@@ -1,0 +1,11 @@
+name: EasyTemplate
+version: 1.0.0
+main: pers.zhangyang.easytemplate.EasyTemplate
+api-version: 1.13
+commands:
+  EasyTemplate:
+    aliases: et
+softdepend:
+  - PlaceholderAPI
+  - Vault
+  - PlayerPoints

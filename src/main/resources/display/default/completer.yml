@@ -1,0 +1,9 @@
+completer:
+
+  #当输入了/easyTemplate后将提示补全以下内容
+  easyTemplate:
+    - "help"
+    - "reloadPlugin"
+    - "correctYaml"
+    - "openGui"
+    - "openMui"
