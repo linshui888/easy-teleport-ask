@@ -19,4 +19,20 @@ public class SettingYaml extends YamlBase {
         assert display != null;
         return display;
     }
+
+    public double teleportAskCost() {
+        double display = getDoubleDefault("setting.teleportAskCost");
+        if (display<0){
+            display=0;
+        }
+        return display;
+    }
+
+    public int teleportAskDelay() {
+        int display = getIntegerDefault("setting.teleportAskDelay");
+        if (display<0){
+            display=3;
+        }
+        return display;
+    }
 }

@@ -9,7 +9,15 @@ setting:
   display: "default"
 
 
+  #哪些世界关闭传送请求，其他世界的玩家无法通过传送申请来到下面的黑名单世界
+  worldBlackList:
+    - "world_nether"
 
 
+  #两次传送申请间隔发送的时间，单位为秒，必须是非负整数，否则采用默认值3
+  teleportAskDelay: 3
+
+  #发送传送申请需要的Vault金币花费，必须是非负数，否则采用默认值3
+  teleportAskCost: 0
 
 
