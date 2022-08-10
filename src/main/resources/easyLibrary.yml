@@ -1,11 +1,11 @@
 
 daoPackage:
-  - "pers/zhangyang/easytemplate/dao"
+  - "pers/zhangyang/easyteleportask/dao"
 listenerPackage:
-  - "pers/zhangyang/easytemplate/listener"
+  - "pers/zhangyang/easyteleportask/listener"
 executorPackage:
-  - "pers/zhangyang/easytemplate/executor"
+  - "pers/zhangyang/easyteleportask/executor"
 yamlPackage:
-  - "pers/zhangyang/easytemplate/yaml"
+  - "pers/zhangyang/easyteleportask/yaml"
 guiButtonHandlerPackage:
-  - "pers/zhangyang/easytemplate/listener"
+  - "pers/zhangyang/easyteleportask/listener"

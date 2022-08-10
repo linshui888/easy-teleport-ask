@@ -1,4 +1,4 @@
-package pers.zhangyang.easytemplate.yaml;
+package pers.zhangyang.easyteleportask.yaml;
 
 import pers.zhangyang.easylibrary.base.YamlBase;
 

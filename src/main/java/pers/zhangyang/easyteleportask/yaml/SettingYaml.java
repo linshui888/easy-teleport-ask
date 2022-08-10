@@ -1,4 +1,4 @@
-package pers.zhangyang.easytemplate.yaml;
+package pers.zhangyang.easyteleportask.yaml;
 
 import org.jetbrains.annotations.NotNull;
 import pers.zhangyang.easylibrary.base.YamlBase;

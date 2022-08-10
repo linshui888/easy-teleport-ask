@@ -1,11 +1,9 @@
-name: EasyTemplate
+name: EasyTeleportAsk
 version: 1.0.0
-main: pers.zhangyang.easytemplate.EasyTemplate
+main: pers.zhangyang.easyteleportask.EasyTeleportAsk
 api-version: 1.13
 commands:
-  EasyTemplate:
-    aliases: et
+  EasyTeleportAsk:
+    aliases: eta
 softdepend:
-  - PlaceholderAPI
   - Vault
-  - PlayerPoints
