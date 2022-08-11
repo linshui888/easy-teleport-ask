@@ -20,6 +20,7 @@ public class PlayerClickManageTeleportAskPageTeleportAsk implements Listener {
 
         ManageTeleportAskPage manageTeleportAskPage= (ManageTeleportAskPage) event.getInventory().getHolder();
 
+        assert manageTeleportAskPage != null;
         TeleportAsk teleportAsk=manageTeleportAskPage.getTeleportAskList().get(slot);
         new ManageTeleportAskPageTeleportAskOptionPage(teleportAsk,player,manageTeleportAskPage,manageTeleportAskPage.getOwner()).send();
 

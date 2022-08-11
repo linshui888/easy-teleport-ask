@@ -9,6 +9,7 @@ import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 import pers.zhangyang.easyteleportask.domain.Gamer;
 import pers.zhangyang.easyteleportask.domain.ManageTeleportAskPageTeleportAskOptionPage;
+import pers.zhangyang.easyteleportask.enumeration.AskTypeEnum;
 import pers.zhangyang.easyteleportask.manager.GamerManager;
 import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
 
@@ -31,11 +32,22 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageAcceptTeleport
            manageTeleportAskPageTeleportAskOptionPage.refresh();
            return;
        }
-
+       Player onlineOwner=manageTeleportAskPageTeleportAskOptionPage.getOwner().getPlayer();
+        if (onlineOwner==null){
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
 
         Player target=manageTeleportAskPageTeleportAskOptionPage.getAsk().getTarget();
         Player sender=manageTeleportAskPageTeleportAskOptionPage.getAsk().getSender();
-        target.teleport(sender.getLocation());
+
+        if (manageTeleportAskPageTeleportAskOptionPage.getAsk().getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)){
+            sender.teleport(viewer.getLocation());
+        }
+        if (manageTeleportAskPageTeleportAskOptionPage.getAsk().getAskType().equals(AskTypeEnum.TELEPORT_ASK_HERE)){
+            viewer.teleport(sender.getLocation());
+        }
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 
