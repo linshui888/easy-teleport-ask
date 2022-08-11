@@ -52,7 +52,7 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
         ItemStack teleportAskInformation= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.teleportAskInformation");
         HashMap<String,String> rep=new HashMap<>();
         rep.put("{sender_name}",ask.getSender().getName());
-        rep.put("{target_name}",ask.getSender().getName());
+        rep.put("{target_name}",ask.getTarget().getName());
         rep.put("{sender_x}", String.valueOf(ask.getSender().getLocation().getX()));
         rep.put("{sender_y}", String.valueOf(ask.getSender().getLocation().getY()));
         rep.put("{sender_z}", String.valueOf(ask.getSender().getLocation().getZ()));

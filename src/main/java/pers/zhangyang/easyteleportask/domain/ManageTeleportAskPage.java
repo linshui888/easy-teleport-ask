@@ -55,7 +55,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
             TeleportAsk ask=teleportAskList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             rep.put("{sender_name}",ask.getSender().getName());
-            rep.put("{target_name}",ask.getSender().getName());
+            rep.put("{target_name}",ask.getTarget().getName());
 
             if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
                 rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskTo"));
