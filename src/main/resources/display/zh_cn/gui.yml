@@ -16,6 +16,24 @@ gui:
 
   button:
     manageTeleportAskPage:
+      previousPage:
+        materialName: "CHEST"
+        displayName: "&b&l&n上一页"
+        lore:
+          - "&f&l点我前往上一页"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: [ ]
+      nextPage:
+        materialName: "CHEST"
+        displayName: "&b&l&n下一页"
+        lore:
+          - "&f&l点我前往下一页"
+        amount: 1
+        itemFlag:
+          - "HIDE_DESTROYS"
+        customModelData: [ ]
       back:
 
         #表示按钮的材料,想知道材料名字,请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看

@@ -87,6 +87,23 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
         ItemStack teleportHere= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.teleportAskHere");
         this.inventory.setItem(50,teleportHere);
 
+
+
+
+
+        if (pageIndex > 0) {
+            ItemStack previous = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.previousPage");
+            inventory.setItem(45, previous);
+        }
+        int maxIndex = PageUtil.computeMaxPageIndex(this.teleportAskList.size(), 45);
+        if (pageIndex > maxIndex) {
+            this.pageIndex = maxIndex;
+        }
+        if (pageIndex < maxIndex) {
+            ItemStack next = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.nextPage");
+            inventory.setItem(53, next);
+        }
+
         viewer.openInventory(this.inventory);
     }
 
