@@ -119,6 +119,7 @@ gui:
           - "&d&l申请者位置x坐标 &f{sender_x}"
           - "&e&l申请者位置y坐标 &f{sender_y}"
           - "&f&l申请者位置z坐标 &f{sender_z}"
+          - "&a&l申请产生时间 &f{create_time}"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
