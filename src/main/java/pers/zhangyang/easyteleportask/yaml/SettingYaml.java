@@ -28,11 +28,4 @@ public class SettingYaml extends YamlBase {
         return display;
     }
 
-    public int teleportAskDelay() {
-        int display = getIntegerDefault("setting.teleportAskDelay");
-        if (display<0){
-            display=3;
-        }
-        return display;
-    }
 }

@@ -7,6 +7,7 @@ import pers.zhangyang.easylibrary.base.FiniteInputListenerBase;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.other.vault.Vault;
 import pers.zhangyang.easylibrary.util.MessageUtil;
+import pers.zhangyang.easylibrary.util.PermUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 import pers.zhangyang.easyteleportask.domain.Gamer;
 import pers.zhangyang.easyteleportask.domain.TeleportAsk;
@@ -55,13 +56,20 @@ public class PlayerInputAfterClickManageTeleportAskPageTeleportAskTo extends Fin
             return;
         }
 
-TeleportAsk latestTeleportAsk=TeleportAskManager.INSTANCE.getLatestPlayerSendTeleportAsk(onlineOwner);
-        if (latestTeleportAsk!=null &&System.currentTimeMillis()-latestTeleportAsk.getTime()
-                < SettingYaml.INSTANCE.teleportAskDelay()* 1000L){
+        if (!onlineOwner.isOp()) {
+        Integer perm= PermUtil.getMinNumberPerm("EasyTeleportAsk.teleportAskInterval.",onlineOwner);
+        if (perm==null){
+            perm=0;
+        }
+        TeleportAsk latestTeleportAsk=TeleportAskManager.INSTANCE.getLatestPlayerSendTeleportAsk(onlineOwner);
 
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhenTeleportAskTo");
-            MessageUtil.sendMessageTo(player, list);
-            return;
+            if (latestTeleportAsk != null && System.currentTimeMillis() - latestTeleportAsk.getTime()
+                    < perm * 1000L) {
+
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.tooFastWhenTeleportAskTo");
+                MessageUtil.sendMessageTo(player, list);
+                return;
+            }
         }
 
 
