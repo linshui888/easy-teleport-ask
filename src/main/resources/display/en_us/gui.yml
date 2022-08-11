@@ -6,7 +6,7 @@ gui:
 
   #第一个页面的返回按钮点击后执行的指令，格式为 way:command，其中的way指代执行的方式，command是命令，命令无需加/，
   #执行方式有operator、console、player，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、玩家执行
-  firstPageBackPageCommand:
+  firstPageBackCommand:
     - "player:bs"
     - "player:cd"
 
@@ -16,7 +16,7 @@ gui:
 
   button:
     manageTeleportAskPage:
-      backPage:
+      back:
 
         #表示按钮的材料,想知道材料名字,请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看
         #如果是AIR代表不显示相关按钮并且无法被点击
@@ -57,7 +57,7 @@ gui:
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
-      teleportAsk:
+      manageTeleportAskPageTeleportAskOptionPage:
         materialName: "CHEST"
         displayName: "&b&l&n一条传送申请"
         lore:
@@ -70,7 +70,7 @@ gui:
         customModelData: [ ]
 
     manageTeleportAskPageTeleportAskOptionPage:
-      backPage:
+      back:
 
         materialName: "BARRIER"
         displayName: "&b&l&n返回"

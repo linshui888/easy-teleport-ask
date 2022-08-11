@@ -32,7 +32,7 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
             return;
         }
 
-        ItemStack backPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.backPage");
+        ItemStack backPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.back");
         this.inventory.setItem(49,backPage);
 
         if (owner.getUniqueId().equals(ask.getTarget().getUniqueId())) {

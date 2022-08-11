@@ -51,7 +51,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.teleportAsk");
+            ItemStack itemStack=GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
             TeleportAsk ask=teleportAskList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             rep.put("{sender_name}",ask.getSender().getName());
@@ -72,7 +72,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
 
 
 
-        ItemStack returnPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.backPage");
+        ItemStack returnPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.back");
         this.inventory.setItem(49,returnPage);
 
 
@@ -92,7 +92,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
 
     @Override
     public void back() {
-        List<String> cmdList= GuiYaml.INSTANCE.getStringList("gui.firstPageBackPageCommand");
+        List<String> cmdList= GuiYaml.INSTANCE.getStringList("gui.firstPageBackCommand");
         if (cmdList==null){
             return;
         }
