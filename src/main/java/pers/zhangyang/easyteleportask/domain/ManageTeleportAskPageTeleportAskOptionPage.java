@@ -18,7 +18,7 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
     private final TeleportAsk ask;
     public ManageTeleportAskPageTeleportAskOptionPage(TeleportAsk ask, Player viewer, GuiPage backPage, OfflinePlayer owner) {
 
-        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPage"), viewer, backPage, owner);
+        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPageTeleportAskOptionPage"), viewer, backPage, owner);
         this.ask=ask;
     }
 
