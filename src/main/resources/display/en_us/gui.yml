@@ -17,7 +17,7 @@ gui:
   button:
     manageTeleportAskPage:
       previousPage:
-        materialName: "CHEST"
+        materialName: "BOOK"
         displayName: "&b&l&n上一页"
         lore:
           - "&f&l点我前往上一页"
@@ -26,7 +26,7 @@ gui:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       nextPage:
-        materialName: "CHEST"
+        materialName: "BOOK"
         displayName: "&b&l&n下一页"
         lore:
           - "&f&l点我前往下一页"
