@@ -56,7 +56,8 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
         rep.put("{sender_x}", String.valueOf(ask.getSender().getLocation().getX()));
         rep.put("{sender_y}", String.valueOf(ask.getSender().getLocation().getY()));
         rep.put("{sender_z}", String.valueOf(ask.getSender().getLocation().getZ()));
-        rep.put("{sender_world}", ask.getSender().getLocation().getWorld().getName());
+
+        rep.put("{sender_world}", ask.getSender().getWorld().getName());
 
         if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
             rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskTo"));
