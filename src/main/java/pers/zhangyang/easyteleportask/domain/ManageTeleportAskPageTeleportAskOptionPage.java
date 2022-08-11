@@ -8,6 +8,7 @@ import pers.zhangyang.easylibrary.base.BackAble;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.SingleGuiPageBase;
 import pers.zhangyang.easylibrary.util.ReplaceUtil;
+import pers.zhangyang.easylibrary.util.TimeUtil;
 import pers.zhangyang.easyteleportask.enumeration.AskTypeEnum;
 import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
 import pers.zhangyang.easyteleportask.yaml.GuiYaml;
@@ -57,6 +58,7 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
         rep.put("{sender_y}", String.valueOf(ask.getSender().getLocation().getY()));
         rep.put("{sender_z}", String.valueOf(ask.getSender().getLocation().getZ()));
 
+        rep.put("{create_time}", TimeUtil.getTimeFromTimeMill(ask.getTime()));
         rep.put("{sender_world}", ask.getSender().getWorld().getName());
 
         if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {

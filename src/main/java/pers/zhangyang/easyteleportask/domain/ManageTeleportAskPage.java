@@ -17,6 +17,7 @@ import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
 import pers.zhangyang.easyteleportask.yaml.GuiYaml;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,7 +45,9 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
         }
 
         this.inventory.clear();
-        teleportAskList=PageUtil.page(this.pageIndex,45, TeleportAskManager.INSTANCE.getTeleportAskList(onlineOwner));
+        List<TeleportAsk> teleportAskList=new ArrayList<>(TeleportAskManager.INSTANCE.getTeleportAskList(onlineOwner));
+        Collections.reverse(teleportAskList);
+        teleportAskList=PageUtil.page(this.pageIndex,45,teleportAskList);
 
         for (int i=0;i<45;i++){
             if (i >= teleportAskList.size()) {

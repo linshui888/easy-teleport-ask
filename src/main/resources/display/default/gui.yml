@@ -61,6 +61,7 @@ gui:
         materialName: "CHEST"
         displayName: "&b&l&n一条传送申请"
         lore:
+          - "&a&l申请产生时间 &f{create_time}"
           - "&a&l传送类型 &f{teleport_ask_type}"
           - "&b&l&n传送申请 &f{sender_name} &b&l-> &f{target_name}"
           - "&c&l点我查看详情"
