@@ -34,12 +34,6 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageDenyTeleportAs
             return;
         }
 
-        Player onlineOwner=manageTeleportAskPageTeleportAskOptionPage.getOwner().getPlayer();
-        if (onlineOwner==null){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
-            MessageUtil.sendMessageTo(viewer, list);
-            return;
-        }
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 

@@ -1,6 +1,5 @@
 
-daoPackage:
-  - "pers/zhangyang/easyteleportask/dao"
+daoPackage: []
 listenerPackage:
   - "pers/zhangyang/easyteleportask/listener"
 executorPackage:

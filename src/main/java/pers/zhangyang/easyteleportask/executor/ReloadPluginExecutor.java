@@ -8,6 +8,7 @@ import pers.zhangyang.easylibrary.base.ExecutorBase;
 import pers.zhangyang.easylibrary.util.MessageUtil;
 import pers.zhangyang.easylibrary.yaml.MessageYaml;
 import pers.zhangyang.easyteleportask.manager.GamerManager;
+import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class ReloadPluginExecutor extends ExecutorBase {
         for (Player p: Bukkit.getOnlinePlayers()){
             GamerManager.INSTANCE.remove(p);
         }
+        TeleportAskManager.INSTANCE.getTeleportAskList().clear();
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.reloadPlugin");
         MessageUtil.sendMessageTo(this.sender, list);
