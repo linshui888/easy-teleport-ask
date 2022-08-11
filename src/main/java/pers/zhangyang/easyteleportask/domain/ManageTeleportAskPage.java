@@ -11,6 +11,7 @@ import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.MultipleGuiPageBase;
 import pers.zhangyang.easylibrary.util.PageUtil;
 import pers.zhangyang.easylibrary.util.ReplaceUtil;
+import pers.zhangyang.easylibrary.util.TimeUtil;
 import pers.zhangyang.easyteleportask.enumeration.AskTypeEnum;
 import pers.zhangyang.easyteleportask.manager.GamerManager;
 import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
@@ -47,7 +48,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
         this.inventory.clear();
         List<TeleportAsk> teleportAskList=new ArrayList<>(TeleportAskManager.INSTANCE.getTeleportAskList(onlineOwner));
         Collections.reverse(teleportAskList);
-        teleportAskList=PageUtil.page(this.pageIndex,45,teleportAskList);
+        this.teleportAskList=PageUtil.page(this.pageIndex,45,teleportAskList);
 
         for (int i=0;i<45;i++){
             if (i >= teleportAskList.size()) {
@@ -60,6 +61,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
             rep.put("{sender_name}",ask.getSender().getName());
             rep.put("{target_name}",ask.getTarget().getName());
 
+            rep.put("{create_time}", TimeUtil.getTimeFromTimeMill(ask.getTime()));
             if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
                 rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskTo"));
             }

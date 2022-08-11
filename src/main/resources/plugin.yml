@@ -1,5 +1,5 @@
 name: EasyTeleportAsk
-version: 1.1.0
+version: 1.2.0
 main: pers.zhangyang.easyteleportask.EasyTeleportAsk
 api-version: 1.13
 commands:
