@@ -20,10 +20,10 @@ public class SettingYaml extends YamlBase {
         return display;
     }
 
-    public double teleportAskCost() {
-        double display = getDoubleDefault("setting.teleportAskCost");
-        if (display<0){
-            display=0;
+    public Double teleportAskCost() {
+        Double display = getDouble("setting.teleportAskCost");
+        if (display!=null&&display<0){
+            display=yamlConfiguration.getDouble("setting.teleportAskCost");
         }
         return display;
     }

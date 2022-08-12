@@ -1,6 +1,5 @@
 completer:
-
-  #当输入了/easyTeleportAsk后将提示补全以下内容
+  #When you enter /easyTeleportAsk, you will be prompted to complete the following:
   easyTeleportAsk:
     - "help"
     - "reloadPlugin"

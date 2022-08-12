@@ -75,17 +75,21 @@ public class PlayerInputAfterClickManageTeleportAskPageTeleportAskHere extends F
 
 
 
-        if (Vault.hook()==null){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
-            MessageUtil.sendMessageTo(player, list);
-            return;
+        Double cost=SettingYaml.INSTANCE.teleportAskCost();
+        if (cost!=null) {
+            if (Vault.hook() == null) {
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");
+                MessageUtil.sendMessageTo(player, list);
+                return;
+            }
+            if (Vault.hook().getBalance(onlineOwner) < cost) {
+                List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenTeleportAskHere");
+                MessageUtil.sendMessageTo(player, list);
+                return;
+            }
+            Vault.hook().withdrawPlayer(onlineOwner, cost);
         }
-        if (Vault.hook().getBalance(onlineOwner)<SettingYaml.INSTANCE.teleportAskCost()){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notEnoughVaultWhenTeleportAskHere");
-            MessageUtil.sendMessageTo(player, list);
-            return;
-        }
-        Vault.hook().withdrawPlayer(onlineOwner,SettingYaml.INSTANCE.teleportAskCost());
+
 
         TeleportAsk teleportAsk=new TeleportAsk(onlineOwner,target, AskTypeEnum.TELEPORT_ASK_HERE, System.currentTimeMillis());
         TeleportAskManager.INSTANCE.addTeleportAsk(teleportAsk);

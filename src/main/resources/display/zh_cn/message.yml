@@ -1,4 +1,5 @@
 message:
+  #输入什么取消操作
   input:
     cancel: "取消"
   chat:

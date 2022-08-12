@@ -1,5 +1,6 @@
 gui:
 
+ #Gui中可替换的一些字符
   replace:
     teleportAskTo: "传送去"
     teleportAskHere: "传送来"
@@ -81,7 +82,7 @@ gui:
         lore:
           - "&a&l申请产生时间 &f{create_time}"
           - "&a&l传送类型 &f{teleport_ask_type}"
-          - "&b&l&n传送申请 &f{sender_name} &b&l-> &f{target_name}"
+          - "&f{sender_name} &b&l-> &f{target_name}"
           - "&c&l点我查看详情"
         amount: 1
         itemFlag:

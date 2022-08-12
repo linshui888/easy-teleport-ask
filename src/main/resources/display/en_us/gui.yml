@@ -1,88 +1,88 @@
 gui:
-
+  #Some replaceable characters in Gui
   replace:
     teleportAskTo: "传送去"
     teleportAskHere: "传送来"
 
-  #第一个页面的返回按钮点击后执行的指令，格式为 way:command，其中的way指代执行的方式，command是命令，命令无需加/，
-  #执行方式有operator、console、player，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、玩家执行
+  #The command to be executed after the return button on the first page is clicked. The format is way: command, where way refers to the execution mode, and command is a command. The command does not need to add /,
+  #The execution methods are operator, console and player, which respectively represent the execution as op (give the player OP and then execute and then cancel the player OP), console execution and player execution
   firstPageBackCommand:
     - "player:bs"
     - "player:cd"
 
   title:
-    manageTeleportAskPage: "&b&l&n全部请求&e&l(陈列了所有的传送请求)"
-    manageTeleportAskPageTeleportAskOptionPage: "&b&l&n请求选项&e&l(陈列了所有的选项)"
+    manageTeleportAskPage: "&b&l&nAll Teleport Ask&e&l(There are all teleport ask)"
+    manageTeleportAskPageTeleportAskOptionPage: "&b&l&nTeleport Ask Option&e&l(Some option)"
 
   button:
     manageTeleportAskPage:
       previousPage:
         materialName: "BOOK"
-        displayName: "&b&l&n上一页"
+        displayName: "&b&l&nPrevious Page"
         lore:
-          - "&f&l点我前往上一页"
+          - "&f&lClick me to previous page"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       nextPage:
         materialName: "BOOK"
-        displayName: "&b&l&n下一页"
+        displayName: "&b&l&nNext Page"
         lore:
-          - "&f&l点我前往下一页"
+          - "&f&lClick me to next page"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       back:
 
-        #表示按钮的材料,想知道材料名字,请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html查看
-        #如果是AIR代表不显示相关按钮并且无法被点击
+        #Represents the material of the button. If you want to know the name of the material, please go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Material.html see
+        #If it is air, the representative does not display the relevant button and cannot be clicked
         materialName: "BARRIER"
 
-        #表示按钮的名称
-        displayName: "&b&l&n返回"
+        #Represents the name of the button
+        displayName: "&b&l&nBack"
 
-        #表示按钮的描述，lore中可以用的变量，除了{()}括起来的，都可以用在displayName中
+        #Represents the description of the button. Variables that can be used in lore, except those enclosed by {()}, can be used in displayName
         lore:
-          - "&c&l点我返回上一页"
+          - "&c&lClick me to back"
 
-        #表示数量
+        #Quantity
         amount: 1
 
-        #表示标志，想知道可以隐藏哪些，请前往https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
+        #Indicates a sign. If you want to know which can be hidden, please go to https://hub.spigotmc.org/javadocs/spigot/org/bukkit/inventory/ItemFlag.html
         itemFlag:
           - "HIDE_DESTROYS"
 
-        #用哪个模型数据 1.12及以前的版本不支持这个
+        #Which model data is used? 1.12 and earlier versions do not support this
         customModelData: [ ]
 
       teleportAskTo:
         materialName: "DIAMOND"
-        displayName: "&b&l&n传送去"
+        displayName: "&b&l&nTeleport To"
         lore:
-          - "&c&l点我申请把自己传送到目标玩家那里去"
+          - "&c&lTeleport to the target's location"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       teleportAskHere:
         materialName: "EMERALD"
-        displayName: "&b&l&n传送来"
+        displayName: "&b&l&nTeleport Here"
         lore:
-          - "&c&l点我申请把目标玩家传送到自己这里来"
+          - "&c&lTeleport the target to my location"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       manageTeleportAskPageTeleportAskOptionPage:
         materialName: "CHEST"
-        displayName: "&b&l&n一条传送申请"
+        displayName: "&b&l&nA Teleport Ask"
         lore:
-          - "&a&l申请产生时间 &f{create_time}"
-          - "&a&l传送类型 &f{teleport_ask_type}"
-          - "&b&l&n传送申请 &f{sender_name} &b&l-> &f{target_name}"
-          - "&c&l点我查看详情"
+          - "&a&lCreate Time &f{create_time}"
+          - "&a&lType &f{teleport_ask_type}"
+          - "&f{sender_name} &b&l-> &f{target_name}"
+          - "&c&lClick me to see more"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
@@ -92,9 +92,9 @@ gui:
       back:
 
         materialName: "BARRIER"
-        displayName: "&b&l&n返回"
+        displayName: "&b&l&nBack"
         lore:
-          - "&c&l点我返回上一页"
+          - "&c&lClick me to back page"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
@@ -102,42 +102,42 @@ gui:
 
       acceptTeleportAsk:
         materialName: "DIAMOND"
-        displayName: "&b&l&n同意"
+        displayName: "&b&l&nAccept"
         lore:
-          - "&c&l点我同意申请"
+          - "&c&lClick me to accept teleport ask"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       denyTeleportAsk:
         materialName: "EMERALD"
-        displayName: "&b&l&n拒绝"
+        displayName: "&b&l&nDeny"
         lore:
-          - "&c&l点我拒绝申请"
+          - "&c&lClick me to deny teleport ask"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       cancelTeleportAsk:
         materialName: "REDSTONE"
-        displayName: "&b&l&n取消"
+        displayName: "&b&l&nCancel"
         lore:
-          - "&c&l点我取消申请"
+          - "&c&lClick me to cancel teleport ask"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"
         customModelData: [ ]
       teleportAskInformation:
         materialName: "PAPER"
-        displayName: "&b&l&n传送申请信息"
+        displayName: "&b&l&nTeleport Ask Information"
         lore:
-          - "&a&l传送类型 &f{teleport_ask_type}"
+          - "&a&lType &f{teleport_ask_type}"
           - "&f{sender_name} &b&l-> &f{target_name}"
-          - "&c&l申请者所在世界 &f{sender_world}"
-          - "&d&l申请者位置x坐标 &f{sender_x}"
-          - "&e&l申请者位置y坐标 &f{sender_y}"
-          - "&f&l申请者位置z坐标 &f{sender_z}"
-          - "&a&l申请产生时间 &f{create_time}"
+          - "&c&lWorld &f{sender_world}"
+          - "&d&lX &f{sender_x}"
+          - "&e&lY &f{sender_y}"
+          - "&f&lZ &f{sender_z}"
+          - "&a&lCreate Time &f{create_time}"
         amount: 1
         itemFlag:
           - "HIDE_DESTROYS"

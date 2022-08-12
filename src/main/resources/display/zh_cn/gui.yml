@@ -1,5 +1,6 @@
 gui:
 
+ #Gui中可替换的一些字符
   replace:
     teleportAskTo: "传送去"
     teleportAskHere: "传送来"
