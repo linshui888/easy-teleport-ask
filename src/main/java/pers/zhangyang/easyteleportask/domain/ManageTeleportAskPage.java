@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 import pers.zhangyang.easylibrary.base.BackAble;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.MultipleGuiPageBase;
+import pers.zhangyang.easylibrary.util.CommandUtil;
 import pers.zhangyang.easylibrary.util.PageUtil;
 import pers.zhangyang.easylibrary.util.ReplaceUtil;
 import pers.zhangyang.easylibrary.util.TimeUtil;
@@ -55,7 +56,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
+            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
             TeleportAsk ask=teleportAskList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             rep.put("{sender_name}",ask.getSender().getName());
@@ -63,10 +64,10 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
 
             rep.put("{create_time}", TimeUtil.getTimeFromTimeMill(ask.getTime()));
             if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
-                rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskTo"));
+                rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getStringDefault("gui.replace.teleportAskTo"));
             }
             if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
-                rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskHere"));
+                rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getStringDefault("gui.replace.teleportAskHere"));
             }
             ReplaceUtil.replaceDisplayName(itemStack,rep);
             ReplaceUtil.replaceLore(itemStack,rep);
@@ -77,14 +78,14 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
 
 
 
-        ItemStack returnPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.back");
+        ItemStack returnPage= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.back");
         this.inventory.setItem(49,returnPage);
 
 
-        ItemStack teleportTo= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.teleportAskTo");
+        ItemStack teleportTo= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.teleportAskTo");
         this.inventory.setItem(48,teleportTo);
 
-        ItemStack teleportHere= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.teleportAskHere");
+        ItemStack teleportHere= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.teleportAskHere");
         this.inventory.setItem(50,teleportHere);
 
 
@@ -92,7 +93,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
 
 
         if (pageIndex > 0) {
-            ItemStack previous = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.previousPage");
+            ItemStack previous = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.previousPage");
             inventory.setItem(45, previous);
         }
         int maxIndex = PageUtil.computeMaxPageIndex(TeleportAskManager.INSTANCE.getTeleportAskList(onlineOwner).size(), 45);
@@ -100,7 +101,7 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
             this.pageIndex = maxIndex;
         }
         if (pageIndex < maxIndex) {
-            ItemStack next = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPage.nextPage");
+            ItemStack next = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.nextPage");
             inventory.setItem(53, next);
         }
 
@@ -118,22 +119,6 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
         if (cmdList==null){
             return;
         }
-        for (String s:cmdList){
-            String[] args=s.split(":");
-            if (args.length!=2){
-                continue;
-            }
-            String way=args[0];
-            String command=args[1];
-            if ("console".equalsIgnoreCase(way)){
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),command);
-            }else if ("player".equalsIgnoreCase(way)){
-                Bukkit.dispatchCommand(viewer,command);
-            }else if ("operator".equalsIgnoreCase(way)){
-                viewer.setOp(true);
-                Bukkit.dispatchCommand(viewer,command);
-                viewer.setOp(false);
-            }
-        }
+        CommandUtil.dispatchCommandList(viewer,cmdList);
     }
 }

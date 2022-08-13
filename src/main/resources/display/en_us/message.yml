@@ -1,5 +1,5 @@
 message:
-  #Enter what to cancel the operation
+  # What to enter to cancel the operation, fill in the blank or "" then the default value is used
   input:
     cancel: "cancel"
   chat:

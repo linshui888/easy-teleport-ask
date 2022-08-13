@@ -1,15 +1,15 @@
 gui:
 
- #Gui中可替换的一些字符
+ #Gui中可替换的一些字符,不填采用默认值
   replace:
     teleportAskTo: "传送去"
     teleportAskHere: "传送来"
 
   #第一个页面的返回按钮点击后执行的指令，格式为 way:command，其中的way指代执行的方式，command是命令，命令无需加/，
-  #执行方式有operator、console、player，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、玩家执行
+  #执行方式有operator、console、self，分别代表以op身份执行（给玩家op然后执行然后取消玩家op）、控制台执行、自身执行
   firstPageBackCommand:
-    - "player:bs"
-    - "player:cd"
+    - "self:bs"
+    - "self:cd"
 
   title:
     manageTeleportAskPage: "&b&l&n全部请求&e&l(陈列了所有的传送请求)"
@@ -82,7 +82,7 @@ gui:
         lore:
           - "&a&l申请产生时间 &f{create_time}"
           - "&a&l传送类型 &f{teleport_ask_type}"
-          - "&b&l&n传送申请 &f{sender_name} &b&l-> &f{target_name}"
+          - "&f{sender_name} &b&l-> &f{target_name}"
           - "&c&l点我查看详情"
         amount: 1
         itemFlag:

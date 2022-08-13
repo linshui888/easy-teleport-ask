@@ -74,7 +74,7 @@ public class PlayerInputAfterClickManageTeleportAskPageTeleportAskTo extends Fin
 
 
 
-        Double cost=SettingYaml.INSTANCE.teleportAskCost();
+        Double cost=SettingYaml.INSTANCE.getNonnegativeDouble("setting.teleportAskCost");
         if (cost!=null) {
             if (Vault.hook() == null) {
                 List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notHookVault");

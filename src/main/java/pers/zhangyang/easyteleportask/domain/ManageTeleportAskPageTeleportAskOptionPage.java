@@ -33,24 +33,24 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
             return;
         }
 
-        ItemStack backPage= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.back");
+        ItemStack backPage= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.back");
         this.inventory.setItem(49,backPage);
 
         if (owner.getUniqueId().equals(ask.getTarget().getUniqueId())) {
-            ItemStack acceptTeleportAsk = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.acceptTeleportAsk");
+            ItemStack acceptTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.acceptTeleportAsk");
             this.inventory.setItem(21, acceptTeleportAsk);
 
-            ItemStack denyTeleportAsk = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.denyTeleportAsk");
+            ItemStack denyTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.denyTeleportAsk");
             this.inventory.setItem(23, denyTeleportAsk);
         }
 
 
         if (owner.getUniqueId().equals(ask.getSender().getUniqueId())) {
-            ItemStack cancelTeleportAsk = GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.cancelTeleportAsk");
+            ItemStack cancelTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.cancelTeleportAsk");
             this.inventory.setItem(22, cancelTeleportAsk);
         }
 
-        ItemStack teleportAskInformation= GuiYaml.INSTANCE.getButton("gui.button.manageTeleportAskPageTeleportAskOptionPage.teleportAskInformation");
+        ItemStack teleportAskInformation= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.teleportAskInformation");
         HashMap<String,String> rep=new HashMap<>();
         rep.put("{sender_name}",ask.getSender().getName());
         rep.put("{target_name}",ask.getTarget().getName());
@@ -62,10 +62,10 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
         rep.put("{sender_world}", ask.getSender().getWorld().getName());
 
         if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
-            rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskTo"));
+            rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getStringDefault("gui.replace.teleportAskTo"));
         }
         if (ask.getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)) {
-            rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getString("gui.replace.teleportAskHere"));
+            rep.put("{teleport_ask_type}", GuiYaml.INSTANCE.getStringDefault("gui.replace.teleportAskHere"));
         }
         ReplaceUtil.replaceDisplayName(teleportAskInformation,rep);
         ReplaceUtil.replaceLore(teleportAskInformation,rep);

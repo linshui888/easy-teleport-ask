@@ -32,12 +32,6 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageAcceptTeleport
            manageTeleportAskPageTeleportAskOptionPage.refresh();
            return;
        }
-       Player onlineOwner=manageTeleportAskPageTeleportAskOptionPage.getOwner().getPlayer();
-        if (onlineOwner==null){
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notOnline");
-            MessageUtil.sendMessageTo(viewer, list);
-            return;
-        }
 
         Player target=manageTeleportAskPageTeleportAskOptionPage.getAsk().getTarget();
         Player sender=manageTeleportAskPageTeleportAskOptionPage.getAsk().getSender();
