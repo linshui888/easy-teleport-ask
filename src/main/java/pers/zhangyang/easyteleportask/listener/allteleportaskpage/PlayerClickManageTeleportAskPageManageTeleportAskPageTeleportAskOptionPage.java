@@ -4,14 +4,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import pers.zhangyang.easylibrary.annotation.EventListener;
-import pers.zhangyang.easylibrary.annotation.GuiDiscreteButtonHandler;
 import pers.zhangyang.easylibrary.annotation.GuiSerialButtonHandler;
 import pers.zhangyang.easyteleportask.domain.ManageTeleportAskPage;
 import pers.zhangyang.easyteleportask.domain.ManageTeleportAskPageTeleportAskOptionPage;
 import pers.zhangyang.easyteleportask.domain.TeleportAsk;
 
 @EventListener
-public class PlayerClickManageTeleportAskPageTeleportAsk implements Listener {
+public class PlayerClickManageTeleportAskPageManageTeleportAskPageTeleportAskOptionPage implements Listener {
     @GuiSerialButtonHandler(guiPage = ManageTeleportAskPage.class,from = 0,to = 44)
     public void on(InventoryClickEvent event){
 
