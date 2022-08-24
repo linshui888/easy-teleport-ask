@@ -6,3 +6,5 @@ completer:
     - "correctYaml"
     - "openGui"
     - "openMui"
+  easyTeleportAskOpenMui:
+    - "<player name>"

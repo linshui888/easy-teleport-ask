@@ -19,7 +19,7 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
     private final TeleportAsk ask;
     public ManageTeleportAskPageTeleportAskOptionPage(TeleportAsk ask, Player viewer, GuiPage backPage, OfflinePlayer owner) {
 
-        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPageTeleportAskOptionPage"), viewer, backPage, owner);
+        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPageTeleportAskOptionPage"), viewer, backPage, owner,54);
         this.ask=ask;
     }
 
@@ -83,5 +83,10 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
     @Override
     public void back() {
         backPage.refresh();
+    }
+
+    @Override
+    public int getBackSlot() {
+        return 49;
     }
 }

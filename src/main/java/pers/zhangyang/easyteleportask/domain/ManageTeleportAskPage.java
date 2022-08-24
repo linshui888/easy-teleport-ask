@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAble{
     public ManageTeleportAskPage(@NotNull Player viewer, @Nullable GuiPage backPage, OfflinePlayer owner) {
-        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPage"), viewer, backPage, owner);
+        super(GuiYaml.INSTANCE.getString("gui.title.manageTeleportAskPage"), viewer, backPage, owner,54);
     }
 
     private List<TeleportAsk> teleportAskList;
@@ -108,6 +108,16 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
         viewer.openInventory(this.inventory);
     }
 
+    @Override
+    public int getPreviousPageSlot() {
+        return 45;
+    }
+
+    @Override
+    public int getNextPageSlot() {
+        return 53;
+    }
+
     @NotNull
     public List<TeleportAsk> getTeleportAskList() {
         return teleportAskList;
@@ -120,5 +130,10 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
             return;
         }
         CommandUtil.dispatchCommandList(viewer,cmdList);
+    }
+
+    @Override
+    public int getBackSlot() {
+        return 49;
     }
 }

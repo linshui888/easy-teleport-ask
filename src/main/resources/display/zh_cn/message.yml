@@ -2,6 +2,8 @@ message:
   #输入什么取消操作，填空或者为""则采用默认值
   input:
     cancel: "取消"
+
+    #下面支持Papi变量
   chat:
     failureGetLatestVersion:
       - "&c&l获得EasyTeleportAsk最新版本失败。"
@@ -52,10 +54,10 @@ message:
 
     tooFastWhenTeleportAskHere:
       - "&c&l两次传送来申请太快。"
-    notEnoughVaultWhenTeleportAskHere:
-      - "&c&l钱不够，不能申请传送过来。"
     tooFastWhenTeleportAskTo:
       - "&c&l两次传送来申请太快。"
+    notEnoughVaultWhenTeleportAskHere:
+      - "&c&l钱不够，不能申请传送过来。"
     notEnoughVaultWhenTeleportAskTo:
       - "&c&l钱不够，不能申请传送过去。"
     worldBlackListWhenTeleportAskHere:
