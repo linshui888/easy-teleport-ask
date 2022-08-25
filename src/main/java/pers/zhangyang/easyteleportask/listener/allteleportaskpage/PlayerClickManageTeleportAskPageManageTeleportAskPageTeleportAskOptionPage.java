@@ -11,7 +11,7 @@ import pers.zhangyang.easyteleportask.domain.TeleportAsk;
 
 @EventListener
 public class PlayerClickManageTeleportAskPageManageTeleportAskPageTeleportAskOptionPage implements Listener {
-    @GuiSerialButtonHandler(guiPage = ManageTeleportAskPage.class,from = 0,to = 44)
+    @GuiSerialButtonHandler(guiPage = ManageTeleportAskPage.class,from = 0,to = 44,refreshGui = false,closeGui = false)
     public void on(InventoryClickEvent event){
 
         int slot=event.getRawSlot();

@@ -13,7 +13,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickManageTeleportAskPageTeleportAskTo implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPage.class,slot = {48})
+    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPage.class,slot = {48},refreshGui = false,closeGui = true)
     public void on(InventoryClickEvent event){
 
         Player player= (Player) event.getWhoClicked();

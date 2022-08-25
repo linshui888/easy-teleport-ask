@@ -16,7 +16,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickManageTeleportAskPageTeleportAskOptionPageCancelTeleportAsk implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPageTeleportAskOptionPage.class,slot = 22)
+    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPageTeleportAskOptionPage.class,slot = 22,refreshGui = false,closeGui = true)
     public void on(InventoryClickEvent event){
 
         ManageTeleportAskPageTeleportAskOptionPage manageTeleportAskPageTeleportAskOptionPage= (ManageTeleportAskPageTeleportAskOptionPage) event.getInventory().getHolder();
