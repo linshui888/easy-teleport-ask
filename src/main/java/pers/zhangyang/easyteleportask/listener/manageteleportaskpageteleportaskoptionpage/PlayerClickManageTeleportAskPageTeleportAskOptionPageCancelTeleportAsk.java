@@ -26,14 +26,12 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageCancelTeleport
         if (!TeleportAskManager.INSTANCE.getTeleportAskList().contains(manageTeleportAskPageTeleportAskOptionPage.getAsk())){
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistTeleportAsk");
             MessageUtil.sendMessageTo(viewer, list);
-            manageTeleportAskPageTeleportAskOptionPage.refresh();
             return;
         }
 
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 
-        manageTeleportAskPageTeleportAskOptionPage.refresh();
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.cancelTeleportAsk");
         MessageUtil.sendMessageTo(viewer, list);
     }

@@ -29,7 +29,6 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageAcceptTeleport
        if (!TeleportAskManager.INSTANCE.getTeleportAskList().contains(manageTeleportAskPageTeleportAskOptionPage.getAsk())){
            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistTeleportAsk");
            MessageUtil.sendMessageTo(viewer, list);
-           manageTeleportAskPageTeleportAskOptionPage.refresh();
            return;
        }
 
@@ -45,7 +44,6 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageAcceptTeleport
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 
-        manageTeleportAskPageTeleportAskOptionPage.refresh();
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.acceptTeleportAsk");
         MessageUtil.sendMessageTo(viewer, list);

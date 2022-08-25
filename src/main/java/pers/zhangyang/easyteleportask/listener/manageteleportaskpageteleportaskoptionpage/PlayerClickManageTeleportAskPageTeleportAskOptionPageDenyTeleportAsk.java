@@ -19,7 +19,7 @@ import java.util.List;
 
 @EventListener
 public class PlayerClickManageTeleportAskPageTeleportAskOptionPageDenyTeleportAsk implements Listener {
-    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPageTeleportAskOptionPage.class,slot = 23)
+    @GuiDiscreteButtonHandler(guiPage = ManageTeleportAskPageTeleportAskOptionPage.class,slot = 23,closeGui = false,refreshGui = true)
     public void on(InventoryClickEvent event){
 
         ManageTeleportAskPageTeleportAskOptionPage manageTeleportAskPageTeleportAskOptionPage= (ManageTeleportAskPageTeleportAskOptionPage) event.getInventory().getHolder();
@@ -30,14 +30,12 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageDenyTeleportAs
         if (!TeleportAskManager.INSTANCE.getTeleportAskList().contains(manageTeleportAskPageTeleportAskOptionPage.getAsk())){
             List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notExistTeleportAsk");
             MessageUtil.sendMessageTo(viewer, list);
-            manageTeleportAskPageTeleportAskOptionPage.refresh();
             return;
         }
 
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 
-        manageTeleportAskPageTeleportAskOptionPage.refresh();
 
         List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.denyTeleportAsk");
         MessageUtil.sendMessageTo(viewer, list);
