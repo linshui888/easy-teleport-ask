@@ -48,13 +48,7 @@ public class PlayerInputAfterClickManageTeleportAskPageTeleportAskTo extends Fin
         Gamer senderGamer= GamerManager.INSTANCE.getGamer(onlineOwner);
         Gamer targetGamer= GamerManager.INSTANCE.getGamer(target);
 
-        List<String> worldNameBlackList=SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
-        if (worldNameBlackList!=null &&worldNameBlackList.contains(target.getWorld().getName())){
 
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenTeleportAskTo");
-            MessageUtil.sendMessageTo(player, list);
-            return;
-        }
 
         if (!onlineOwner.isOp()) {
         Integer perm= PermUtil.getMinNumberPerm("EasyTeleportAsk.teleportAskInterval.",onlineOwner);

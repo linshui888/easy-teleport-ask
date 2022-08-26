@@ -36,19 +36,17 @@ public class ManageTeleportAskPageTeleportAskOptionPage extends SingleGuiPageBas
         ItemStack backPage= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.back");
         this.inventory.setItem(49,backPage);
 
-        if (owner.getUniqueId().equals(ask.getTarget().getUniqueId())) {
             ItemStack acceptTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.acceptTeleportAsk");
             this.inventory.setItem(21, acceptTeleportAsk);
 
             ItemStack denyTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.denyTeleportAsk");
             this.inventory.setItem(23, denyTeleportAsk);
-        }
 
 
-        if (owner.getUniqueId().equals(ask.getSender().getUniqueId())) {
+
             ItemStack cancelTeleportAsk = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.cancelTeleportAsk");
             this.inventory.setItem(22, cancelTeleportAsk);
-        }
+
 
         ItemStack teleportAskInformation= GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPageTeleportAskOptionPage.teleportAskInformation");
         HashMap<String,String> rep=new HashMap<>();

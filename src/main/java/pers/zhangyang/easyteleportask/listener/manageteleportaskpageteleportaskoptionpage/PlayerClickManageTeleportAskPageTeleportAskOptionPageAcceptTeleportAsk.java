@@ -12,6 +12,7 @@ import pers.zhangyang.easyteleportask.domain.ManageTeleportAskPageTeleportAskOpt
 import pers.zhangyang.easyteleportask.enumeration.AskTypeEnum;
 import pers.zhangyang.easyteleportask.manager.GamerManager;
 import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
+import pers.zhangyang.easyteleportask.yaml.SettingYaml;
 
 import java.util.List;
 
@@ -31,9 +32,36 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageAcceptTeleport
            MessageUtil.sendMessageTo(viewer, list);
            return;
        }
+        if (!manageTeleportAskPageTeleportAskOptionPage.getAsk().getTarget().equals(viewer)){
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notTargetWhenAcceptTeleportAsk");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
+
 
         Player target=manageTeleportAskPageTeleportAskOptionPage.getAsk().getTarget();
         Player sender=manageTeleportAskPageTeleportAskOptionPage.getAsk().getSender();
+        List<String> worldNameBlackList= SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
+
+
+        if (worldNameBlackList!=null
+                &&manageTeleportAskPageTeleportAskOptionPage.getAsk().getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)
+                &&worldNameBlackList.contains(viewer.getWorld().getName())){
+
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenAcceptTeleportAsk");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
+        if (worldNameBlackList!=null
+                &&manageTeleportAskPageTeleportAskOptionPage.getAsk().getAskType().equals(AskTypeEnum.TELEPORT_ASK_HERE)
+                &&worldNameBlackList.contains(sender.getWorld().getName())){
+
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenAcceptTeleportAsk");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
+
+
 
         if (manageTeleportAskPageTeleportAskOptionPage.getAsk().getAskType().equals(AskTypeEnum.TELEPORT_ASK_TO)){
             sender.teleport(viewer.getLocation());

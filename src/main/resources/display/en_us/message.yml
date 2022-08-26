@@ -51,7 +51,13 @@ message:
       - "&b&lEnter the name of the target player, enter &Fcancel &B&Lcancel."
     howToTeleportAskHere:
       - "&b&lEnter the name of the target player, enter &Fcancel &B&Lcancel."
-
+      -
+    notSender:
+      - "&C&l is not the request sender cannot cancel the request"
+    notTargetWhenAcceptTeleportAsk:
+      - "&C&l is not a request the recipient could not accept"
+    notTargetWhenDenyTeleportAsk:
+      - "&C&l notRequestReceiverUnableToReject"
     tooFastWhenTeleportAskHere:
       - "&c&lTwo applications sent too fast."
     notEnoughVaultWhenTeleportAskHere:
@@ -60,10 +66,8 @@ message:
       - "&c&lTwo applications sent too fast."
     notEnoughVaultWhenTeleportAskTo:
       - "&c&lYou don't have enough money to apply for teleport to."
-    worldBlackListWhenTeleportAskHere:
-      - "&c&lThe world you live in is a transmission blacklist. You cannot send a transmission to apply."
-    worldBlackListWhenTeleportAskTo:
-      - "&c&lThe world where the target is located is a transfer blacklist, and cannot send a transfer to apply."
+    worldBlackListWhenAcceptTeleportAsk:
+      - "&c&lThe world you is a transmission blacklist. You cannot accept ."
 
     teleportAskTo:
       - "&b&lThe request to teleport to has been sent."

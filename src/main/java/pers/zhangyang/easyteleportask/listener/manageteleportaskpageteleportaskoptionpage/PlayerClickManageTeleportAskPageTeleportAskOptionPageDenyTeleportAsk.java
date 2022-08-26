@@ -33,7 +33,11 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageDenyTeleportAs
             return;
         }
 
-
+        if (!manageTeleportAskPageTeleportAskOptionPage.getAsk().getTarget().equals(viewer)){
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notTargetWhenDenyTeleportAsk");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 
 

@@ -48,13 +48,7 @@ public class PlayerInputAfterClickManageTeleportAskPageTeleportAskHere extends F
         Gamer senderGamer= GamerManager.INSTANCE.getGamer(onlineOwner);
         Gamer targetGamer= GamerManager.INSTANCE.getGamer(target);
 
-        List<String> worldNameBlackList=SettingYaml.INSTANCE.getStringList("setting.worldBlackList");
-        if (worldNameBlackList!=null &&worldNameBlackList.contains(player.getWorld().getName())){
 
-            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.worldBlackListWhenTeleportAskHere");
-            MessageUtil.sendMessageTo(player, list);
-            return;
-        }
 
 
 

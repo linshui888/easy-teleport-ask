@@ -9,10 +9,8 @@ import org.jetbrains.annotations.Nullable;
 import pers.zhangyang.easylibrary.base.BackAble;
 import pers.zhangyang.easylibrary.base.GuiPage;
 import pers.zhangyang.easylibrary.base.MultipleGuiPageBase;
-import pers.zhangyang.easylibrary.util.CommandUtil;
-import pers.zhangyang.easylibrary.util.PageUtil;
-import pers.zhangyang.easylibrary.util.ReplaceUtil;
-import pers.zhangyang.easylibrary.util.TimeUtil;
+import pers.zhangyang.easylibrary.exception.NotApplicableException;
+import pers.zhangyang.easylibrary.util.*;
 import pers.zhangyang.easyteleportask.enumeration.AskTypeEnum;
 import pers.zhangyang.easyteleportask.manager.GamerManager;
 import pers.zhangyang.easyteleportask.manager.TeleportAskManager;
@@ -56,7 +54,21 @@ public class ManageTeleportAskPage extends MultipleGuiPageBase implements BackAb
                 break;
             }
 
-            ItemStack itemStack=GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
+            ItemStack itemStack;
+            if (GuiYaml.INSTANCE.getBooleanDefault("gui.option.enableTeleportAskUsePlayerHead")) {
+                itemStack = PlayerUtil.getPlayerSkullItem(teleportAskList.get(i).getSender());
+                ItemStack tem = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
+                try {
+                    ItemStackUtil.apply(tem, itemStack);
+                } catch (NotApplicableException e) {
+                    itemStack = tem;
+                }
+            } else {
+                itemStack = GuiYaml.INSTANCE.getButtonDefault("gui.button.manageTeleportAskPage.manageTeleportAskPageTeleportAskOptionPage");
+            }
+
+
+
             TeleportAsk ask=teleportAskList.get(i);
             HashMap<String,String> rep=new HashMap<>();
             rep.put("{sender_name}",ask.getSender().getName());

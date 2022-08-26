@@ -11,7 +11,10 @@ gui:
   firstPageBackCommand:
     - "self:bs"
     - "self:cd"
+  option:
 
+    #申请是否显示为申请者的头颅，开启这个功能可能会卡服，因为头颅材质占用网络资源，不填则采用默认值
+    enableTeleportAskUsePlayerHead: false
   title:
     manageTeleportAskPage: "&b&l&n全部请求&e&l(陈列了所有的传送请求)"
     manageTeleportAskPageTeleportAskOptionPage: "&b&l&n请求选项&e&l(陈列了所有的选项)"

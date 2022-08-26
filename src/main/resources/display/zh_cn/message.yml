@@ -52,6 +52,12 @@ message:
     howToTeleportAskHere:
       - "&b&l输入目标玩家的名字，输入 &f取消 &b&l取消。"
 
+    notSender:
+      - "&C&l不是请求发送者无法取消请求"
+    notTargetWhenAcceptTeleportAsk:
+      - "&C&l不是请求接收者无法接受"
+    notTargetWhenDenyTeleportAsk:
+      - "&C&l不是请求接收者无法拒绝"
     tooFastWhenTeleportAskHere:
       - "&c&l两次传送来申请太快。"
     tooFastWhenTeleportAskTo:
@@ -60,10 +66,8 @@ message:
       - "&c&l钱不够，不能申请传送过来。"
     notEnoughVaultWhenTeleportAskTo:
       - "&c&l钱不够，不能申请传送过去。"
-    worldBlackListWhenTeleportAskHere:
-      - "&c&l你所在的世界是传送黑名单，无法发送传送来申请。"
-    worldBlackListWhenTeleportAskTo:
-      - "&c&l目标所在的世界是传送黑名单，无法发送传送去申请。"
+    worldBlackListWhenAcceptTeleportAsk:
+      - "&c&l世界是传送黑名单，无法接受。"
 
     teleportAskTo:
       - "&b&l传送过去的申请已发送。"

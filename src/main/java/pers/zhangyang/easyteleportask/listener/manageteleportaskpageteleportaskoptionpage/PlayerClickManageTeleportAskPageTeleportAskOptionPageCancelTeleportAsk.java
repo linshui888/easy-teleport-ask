@@ -29,6 +29,11 @@ public class PlayerClickManageTeleportAskPageTeleportAskOptionPageCancelTeleport
             return;
         }
 
+        if (!manageTeleportAskPageTeleportAskOptionPage.getAsk().getSender().equals(viewer)){
+            List<String> list = MessageYaml.INSTANCE.getStringList("message.chat.notSender");
+            MessageUtil.sendMessageTo(viewer, list);
+            return;
+        }
 
         TeleportAskManager.INSTANCE.getTeleportAskList().remove(manageTeleportAskPageTeleportAskOptionPage.getAsk());
 

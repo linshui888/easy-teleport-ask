@@ -10,7 +10,10 @@ gui:
   firstPageBackCommand:
     - "self:bs"
     - "self:cd"
+  option:
 
+    #Application whether to display as the applicant's head, open this function may be card service, because the head material occupies network resources, do not fill in the default value is used
+    enableTeleportAskUsePlayerHead: false
   title:
     manageTeleportAskPage: "&b&l&nAll Teleport Ask&e&l(There are all teleport ask)"
     manageTeleportAskPageTeleportAskOptionPage: "&b&l&nTeleport Ask Option&e&l(Some option)"
