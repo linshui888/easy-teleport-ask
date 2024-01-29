@@ -20,8 +20,22 @@ jobs:
     - name: Build with Maven
       run:
         mvn clean package --file pom.xml
-    - name: Upload JAR file
-      uses: actions/upload-artifact@v2
+
+    - name: put jar
+      run: mkdir staging && cp target/*.jar staging
+# 设置 jobs Maven pom 版本环境变量
+    - name: Set Release version env variable
+      run: |
+        echo "RELEASE_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_ENV
+    - name: "Build & test"
+      run: |
+        echo "done!"
+# 上传文件并发布 Release
+    - uses: "marvinpinto/action-automatic-releases@latest"
       with:
-        name: test v1.0
-        path: target/*.jar
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ env.RELEASE_VERSION }}"
+        prerelease: false
+        title: "Release ${{ env.RELEASE_VERSION }}"
+        files: |
+          staging/*.jar
